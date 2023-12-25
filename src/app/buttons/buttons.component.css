@@ -1,0 +1,8 @@
+.btn-login {
+  font-size: 1.5em; /* Zwiększ wielkość czcionki na 2 em */
+  padding: 20px 40px; /* Zwiększ padding */
+  width: 300px; /* Ustaw szerokość przycisku */
+  background-color: #008bff; /* Ustaw kolor tła na niebieski */
+  color: #ffffff; /* Ustaw kolor tekstu na biały */
+  border-color: #008bff; /* Ustaw kolor obramowania na niebieski */
+}

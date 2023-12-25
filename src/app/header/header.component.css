@@ -1,0 +1,25 @@
+.app-logo {
+  height: 50px;
+  mix-blend-mode: multiply;
+}
+
+.app-header {
+  background-color: #007BFF; /* Kolor tła - możesz dostosować do własnych preferencji */
+  height: 70px;
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 1.5em;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
