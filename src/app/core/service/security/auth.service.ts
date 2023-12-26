@@ -18,14 +18,18 @@ export class AuthService {
   constructor(private http: HttpClient, private router: Router) {
   }
 
-  login(username: string, password: string): Observable<any> {
-    return this.http.post<Token>(this.loginUrl, {username: username, password: password})
+  login(login: string, password: string): Observable<any> {
+    return this.http.post<Token>(this.loginUrl, {login: login, password: password})
       .pipe(tap((r: Token) => this.setSession(r)), shareReplay());
   }
 
   isLoggedIn() {
     const expirationDate = this.getTokenExpirationDate();
     return expirationDate?.isValid() && dayjs().isBefore(expirationDate);
+  }
+
+  hasRole() {
+
   }
 
   private setSession(token: Token) {
@@ -60,4 +64,4 @@ export class AuthService {
 
 }
 
-export  type Token = { accessToken: string };
+export type Token = { accessToken: string };
