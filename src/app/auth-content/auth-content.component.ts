@@ -1,27 +1,25 @@
-import { Component } from '@angular/core';
-import { AxiosService } from '../axios.service';
+import {Component, OnInit} from '@angular/core';
+import {AxiosService} from '../axios.service';
 
 @Component({
   selector: 'app-auth-content',
   templateUrl: './auth-content.component.html',
   styleUrls: ['./auth-content.component.css']
 })
-export class AuthContentComponent {
+export class AuthContentComponent implements OnInit {
   data: string[] = [];
 
-  constructor(private axiosService: AxiosService) {}
+  constructor(private axiosService: AxiosService) {
+  }
 
   ngOnInit(): void {
-    console.log('Initiating request to /siema endpoint...');
-
     this.axiosService.request(
       "GET",
-      "/siema",
+      "/esa",
       {}
     ).then(
       (response) => {
-        console.log('Request successful. Response data:', response.data);
-        this.data = response.data;
+        this.data = Array.isArray(response.data) ? response.data : [response.data];
       }
     ).catch(
       (error) => {

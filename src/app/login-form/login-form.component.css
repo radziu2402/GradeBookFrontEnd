@@ -1,6 +1,6 @@
 .col-4 {
   background-color: #3498db;
-  border-radius: 15px; /* Zaokrąglone brzegi */
-  padding: 20px; /* Opcjonalne, dodaje wypełnienie */
-  opacity: 0.99; /* Przezroczystość (0.0 - 1.0) */
+  border-radius: 15px;
+  padding: 20px;
+  opacity: 0.99;
 }

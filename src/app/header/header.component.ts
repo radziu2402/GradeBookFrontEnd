@@ -8,4 +8,8 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
 	@Input() pageTitle!: string;
 	@Input() logoSrc!: string;
+
+  refreshPage(): void {
+    window.location.href = '';
+  }
 }

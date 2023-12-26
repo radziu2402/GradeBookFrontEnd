@@ -1,4 +1,5 @@
 import { EventEmitter, Component, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-form',
@@ -6,7 +7,7 @@ import { EventEmitter, Component, Output } from '@angular/core';
   styleUrls: ['./login-form.component.css'],
   })
 export class LoginFormComponent {
-
+  constructor(private router: Router) {}
   @Output() onSubmitLoginEvent = new EventEmitter();
   @Output() onSubmitRegisterEvent = new EventEmitter();
 
@@ -25,6 +26,10 @@ export class LoginFormComponent {
 
   onSubmitLogin(): void {
     this.onSubmitLoginEvent.emit({"login": this.login, "password": this.password});
+    // this.onLoginSuccess();
+  }
+  onLoginSuccess() {
+    this.router.navigate(['/homepage']).then(r => console.log("poszlo"));
   }
 
   onSubmitRegister(): void {

@@ -1,8 +1,19 @@
 .btn-login {
-  font-size: 1.5em; /* Zwiększ wielkość czcionki na 2 em */
-  padding: 20px 40px; /* Zwiększ padding */
-  width: 300px; /* Ustaw szerokość przycisku */
-  background-color: #008bff; /* Ustaw kolor tła na niebieski */
-  color: #ffffff; /* Ustaw kolor tekstu na biały */
-  border-color: #008bff; /* Ustaw kolor obramowania na niebieski */
+  font-size: 1.5em;
+  padding: 20px 40px;
+  width: 300px;
+  background-color: #008bff;
+  color: #ffffff;
+  border-color: #008bff;
+  position: relative;
+}
+
+.btn-login:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 88, 202, 0.1); /* Kolor podświetlenia */
 }

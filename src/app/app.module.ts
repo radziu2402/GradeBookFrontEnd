@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {FormsModule} from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { ButtonsComponent } from './buttons/buttons.component';
-import { HeaderComponent } from './header/header.component';
-import { LoginFormComponent } from './login-form/login-form.component';
-import { WelcomeContentComponent } from './welcome-content/welcome-content.component';
-import { AuthContentComponent } from './auth-content/auth-content.component';
-import { ContentComponent } from './content/content.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {ButtonsComponent} from './buttons/buttons.component';
+import {HeaderComponent} from './header/header.component';
+import {LoginFormComponent} from './login-form/login-form.component';
+import {AuthContentComponent} from './auth-content/auth-content.component';
+import {ContentComponent} from './content/content.component';
 
-import { AxiosService } from './axios.service';
+import {AxiosService} from './axios.service';
+import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [
@@ -19,9 +19,9 @@ import { AxiosService } from './axios.service';
     ButtonsComponent,
     HeaderComponent,
     LoginFormComponent,
-    WelcomeContentComponent,
     AuthContentComponent,
-    ContentComponent
+    ContentComponent,
+    HomepageComponent
   ],
   imports: [
     BrowserModule,
@@ -31,4 +31,5 @@ import { AxiosService } from './axios.service';
   providers: [AxiosService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
