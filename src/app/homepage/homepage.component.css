@@ -1,0 +1,10 @@
+:host {
+  .container-fluid {
+    height: 80vh;
+    background-image:url('/assets/images/liceumzoomout.jpg');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+  }
+}
