@@ -9,9 +9,10 @@ import {HeaderComponent} from './core/component/header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import {LoginComponent} from "./core/component/login/login.component";
 import {FooterComponent} from "./core/component/footer/footer.component";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from '@angular/material/table';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AuthInterceptor} from "./core/service/security/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     MatTableModule,
     BrowserAnimationsModule
+  ],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    }
   ],
   bootstrap: [AppComponent]
 })

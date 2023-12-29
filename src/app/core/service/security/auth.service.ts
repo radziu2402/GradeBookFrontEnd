@@ -58,7 +58,7 @@ export class AuthService {
     try {
       tokenPayload = jwtDecode(token);
     } catch (error) {
-      console.log('Unparsable JWT');
+      console.log('Not parsable JWT');
       localStorage.removeItem(this.keyToken);
     }
 
