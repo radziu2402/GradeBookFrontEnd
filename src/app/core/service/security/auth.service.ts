@@ -4,6 +4,8 @@ import {Router} from "@angular/router";
 import {Observable, shareReplay, Subject, tap} from "rxjs";
 import {jwtDecode} from "jwt-decode";
 import * as dayjs from "dayjs";
+import {environment} from "../../../../environments/environment";
+import {ROLES} from "../../const/constants";
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +13,7 @@ export class AuthService {
 
   private sessionEvents = new Subject<string>();
 
-  private readonly loginUrl = 'login';
+  private readonly loginUrl = environment.api + 'login';
   private readonly logoutUrl = 'logout';
   private keyToken = 'jwt_token';
 
@@ -28,8 +30,9 @@ export class AuthService {
     return expirationDate?.isValid() && dayjs().isBefore(expirationDate);
   }
 
-  hasRole() {
-
+  getRole(): ROLES {
+    const token = this.getTokenPayload();
+    return token?.role;
   }
 
   private setSession(token: Token) {
@@ -64,4 +67,4 @@ export class AuthService {
 
 }
 
-export type Token = { accessToken: string };
+type Token = { accessToken: string };

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import * as events from "events";
 
 @Component({
   selector: 'app-homepage',
@@ -12,6 +13,8 @@ export class HomepageComponent {
   }
 
   onClickNavigate($event: MouseEvent) {
+    $event.stopPropagation();
+    $event.preventDefault();
     void this.router.navigate(['login'])
   }
 }
