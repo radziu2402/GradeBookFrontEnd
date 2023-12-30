@@ -7,22 +7,27 @@ import {StudentDashboardComponent} from "./core/component/student-dashboard/stud
 import {
   AdministratorDashboardComponent
 } from "./core/component/administrator-dashboard/administrator-dashboard.component";
-import {resolve} from "@angular/compiler-cli";
 import {StudentsTaughtByTeacherResolverService} from "./core/resolvers/StudentsTaughtByTeacherResolverService";
+import {authGuard} from "./core/service/guard/auth.guard";
+import {studentGuard} from "./core/service/guard/student.guard";
+import {adminGuard} from "./core/service/guard/admin.guard";
+import {teacherGuard} from "./core/service/guard/teacher.guard";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomepageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'administrator-dashboard', component: AdministratorDashboardComponent},
+  {path: 'administrator-dashboard', component: AdministratorDashboardComponent, canActivate: [authGuard, adminGuard]},
+  {path: 'student-dashboard', component: StudentDashboardComponent, canActivate: [authGuard, studentGuard]},
   {
     path: 'teacher-dashboard',
     component: TeacherDashboardComponent,
     resolve: {
       data: StudentsTaughtByTeacherResolverService
-    }
+    },
+    canActivate: [authGuard, teacherGuard]
   },
-  {path: 'student-dashboard', component: StudentDashboardComponent},
+  {path: '**', redirectTo: 'home'}
 ];
 
 @NgModule({
