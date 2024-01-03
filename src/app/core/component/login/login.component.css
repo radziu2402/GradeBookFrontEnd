@@ -41,3 +41,11 @@
 .btn:hover {
   background-color: #2e86be;
 }
+
+.input-group-text{
+  cursor: pointer;
+}
+
+.input-group-text:hover{
+  background-color: #f8f3f3;
+}

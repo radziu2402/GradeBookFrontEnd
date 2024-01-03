@@ -6,6 +6,9 @@ import {jwtDecode} from "jwt-decode";
 import * as dayjs from "dayjs";
 import {environment} from "../../../../environments/environment";
 import {ROLES} from "../../const/constants";
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { catchError} from 'rxjs/operators';
+import { throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -14,17 +17,33 @@ export class AuthService {
   private sessionEvents = new Subject<string>();
 
   private readonly loginUrl = environment.api + 'login';
-  private readonly logoutUrl = 'logout';
   private keyToken = 'jwt_token';
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private http: HttpClient, private router: Router, private snackBar: MatSnackBar) {
   }
 
   login(login: string, password: string): Observable<any> {
-    return this.http.post<Token>(this.loginUrl, {login: login, password: password})
-      .pipe(tap((r: Token) => this.setSession(r)), shareReplay());
+    return this.http.post<Token>(this.loginUrl, { login: login, password: password })
+      .pipe(
+        tap((r: Token) => {
+          this.setSession(r);
+          this.showNotification('Zalogowano pomyślnie');
+        }),
+        shareReplay(),
+        catchError((error) => {
+          this.showNotification('Błąd logowania: Nieprawidłowe dane');
+          return throwError(error);
+        })
+      );
   }
 
+  showNotification(message: string) {
+    this.snackBar.open(message, 'Zamknij', { duration: 3000 });
+  }
+  logout() {
+    localStorage.removeItem(this.keyToken);
+    this.router.navigate(["login"])
+  }
   isLoggedIn() {
     const expirationDate = this.getTokenExpirationDate();
     return expirationDate?.isValid() && dayjs().isBefore(expirationDate);
