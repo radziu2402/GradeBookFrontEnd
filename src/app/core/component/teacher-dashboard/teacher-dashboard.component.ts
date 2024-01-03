@@ -14,7 +14,7 @@ import {BehaviorSubject} from "rxjs";
     MatListModule
   ],
   templateUrl: './teacher-dashboard.component.html',
-  styleUrl: './teacher-dashboard.component.css'
+  styleUrl: './teacher-dashboard.component.scss'
 })
 export class TeacherDashboardComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'secondName', 'className'];

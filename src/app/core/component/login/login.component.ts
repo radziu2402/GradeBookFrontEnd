@@ -7,13 +7,16 @@ import {faEyeSlash} from "@fortawesome/free-solid-svg-icons";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.scss'
 })
 export class LoginComponent {
 
   active: string = "login";
   login: string = "";
   password: string = "";
+  passwordVisible: boolean = false;
+
+  protected readonly faEyeSlash = faEyeSlash;
 
   constructor(private authService: AuthService, private router: Router) {
   }
@@ -26,13 +29,9 @@ export class LoginComponent {
     }
   }
 
-  passwordVisible: boolean = false;
-
   togglePasswordVisibility(): void {
     this.passwordVisible = !this.passwordVisible;
     const passwordInput = document.getElementById('loginPassword') as HTMLInputElement;
     passwordInput.type = this.passwordVisible ? 'text' : 'password';
   }
-
-  protected readonly faEyeSlash = faEyeSlash;
 }

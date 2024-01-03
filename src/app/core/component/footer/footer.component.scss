@@ -1,0 +1,31 @@
+
+:host {
+  footer {
+    background-color: #106da1;
+    color: #fff;
+    padding: 10px;
+    text-align: right;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .footer-section {
+    padding-right: 20px;
+  }
+
+  .footer-section a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .footer-section a:hover {
+    text-decoration: underline;
+  }
+
+  .footer-section p {
+    margin: 4px 0;
+  }
+}

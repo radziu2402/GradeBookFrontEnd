@@ -12,7 +12,7 @@ import {MatButtonModule} from "@angular/material/button";
     MatButtonModule
   ],
   templateUrl: './student-dashboard.component.html',
-  styleUrl: './student-dashboard.component.css'
+  styleUrl: './student-dashboard.component.scss'
 })
 export class StudentDashboardComponent {
 

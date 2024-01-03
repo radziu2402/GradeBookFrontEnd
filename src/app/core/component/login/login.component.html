@@ -1,28 +1,26 @@
-<div class="body">
-  <div class="row justify-content-center">
-    <div class="col-4">
-      <div class="tab-content">
-        <div [ngClass]="active == 'login' ? 'tab-pane fade show active' : 'tab-pane fade'">
-          <form (ngSubmit)="submit()" #loginForm="ngForm">
-            <div class="mb-4">
-              <label for="loginName" class="form-label">Login</label>
-              <input id="loginName" name="login" class="form-control" [(ngModel)]="login" required/>
-            </div>
+<div class="row justify-content-center">
+  <div class="col-4">
+    <div class="tab-content">
+      <div [ngClass]="active == 'login' ? 'tab-pane fade show active' : 'tab-pane fade'">
+        <form (ngSubmit)="submit()" #loginForm="ngForm">
+          <div class="mb-4">
+            <label for="loginName" class="form-label">Login</label>
+            <input id="loginName" name="login" class="form-control" [(ngModel)]="login" required/>
+          </div>
 
-            <div class="mb-4">
-              <label for="loginPassword" class="form-label">Hasło</label>
-              <div class="input-group">
-                <input type="password" id="loginPassword" name="password" class="form-control" [(ngModel)]="password"
-                       required/>
-                <span class="input-group-text" id="toggle-password" (click)="togglePasswordVisibility()">
+          <div class="mb-4">
+            <label for="loginPassword" class="form-label">Hasło</label>
+            <div class="input-group">
+              <input type="password" id="loginPassword" name="password" class="form-control" [(ngModel)]="password"
+                     required/>
+              <span class="input-group-text" id="toggle-password" (click)="togglePasswordVisibility()">
                   <fa-icon [icon]="faEyeSlash"></fa-icon>
                 </span>
-              </div>
             </div>
+          </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Zaloguj się</button>
-          </form>
-        </div>
+          <button type="submit" class="btn btn-primary btn-block">Zaloguj się</button>
+        </form>
       </div>
     </div>
   </div>

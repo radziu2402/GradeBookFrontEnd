@@ -14,7 +14,7 @@ import { throwError } from 'rxjs';
 })
 export class AuthService {
 
-  private sessionEvents = new Subject<string>();
+  private sessionEvents$ = new Subject<string>();
 
   private readonly loginUrl = environment.api + 'login';
   private keyToken = 'jwt_token';
@@ -40,9 +40,10 @@ export class AuthService {
   showNotification(message: string) {
     this.snackBar.open(message, 'Zamknij', { duration: 3000 });
   }
+
   logout() {
     localStorage.removeItem(this.keyToken);
-    this.router.navigate(["login"])
+    void this.router.navigate(["login"])
   }
   isLoggedIn() {
     const expirationDate = this.getTokenExpirationDate();
@@ -56,7 +57,7 @@ export class AuthService {
 
   private setSession(token: Token) {
     localStorage.setItem(this.keyToken, token.accessToken);
-    this.sessionEvents.next(token.accessToken);
+    this.sessionEvents$.next(token.accessToken);
   }
 
   private getTokenExpirationDate() {
@@ -68,7 +69,7 @@ export class AuthService {
 
   private getTokenPayload(): any {
     const token = localStorage.getItem(this.keyToken);
-    let tokenPayload;
+    let tokenPayload: any;
 
     if(!token) {
        return;
@@ -83,7 +84,6 @@ export class AuthService {
 
     return tokenPayload;
   }
-
 }
 
 type Token = { accessToken: string };

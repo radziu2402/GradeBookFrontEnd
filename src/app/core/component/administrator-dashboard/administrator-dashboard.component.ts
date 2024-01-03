@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './administrator-dashboard.component.html',
-  styleUrl: './administrator-dashboard.component.css'
+  styleUrl: './administrator-dashboard.component.scss'
 })
 export class AdministratorDashboardComponent {
 

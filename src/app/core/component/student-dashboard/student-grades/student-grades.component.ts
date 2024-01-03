@@ -9,7 +9,7 @@ import {MatTableDataSource, MatTableModule} from "@angular/material/table";
     MatTableModule
   ],
   templateUrl: './student-grades.component.html',
-  styleUrl: './student-grades.component.css'
+  styleUrl: './student-grades.component.scss'
 })
 
 export class StudentGradesComponent implements OnInit {
