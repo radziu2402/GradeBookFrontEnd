@@ -14,7 +14,7 @@
               <input type="password" id="loginPassword" name="password" class="form-control" [(ngModel)]="password"
                      required/>
               <span class="input-group-text" id="toggle-password" (click)="togglePasswordVisibility()">
-                  <fa-icon [icon]="faEyeSlash"></fa-icon>
+                  <fa-icon [icon]="passwordVisible ? faEyeSlash: faEye"></fa-icon>
                 </span>
             </div>
           </div>

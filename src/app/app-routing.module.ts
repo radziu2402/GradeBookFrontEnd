@@ -13,28 +13,48 @@ import {studentGuard} from "./core/service/guard/student.guard";
 import {adminGuard} from "./core/service/guard/admin.guard";
 import {teacherGuard} from "./core/service/guard/teacher.guard";
 import {StudentGradesComponent} from "./core/component/student-dashboard/student-grades/student-grades.component";
+import {UserProfileComponent} from "./profil/component/user-profile/user-profile.component";
+import {profileResolver} from "./profil/resolver/profile.resolver";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomepageComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'administrator-dashboard', component: AdministratorDashboardComponent, canActivate: [authGuard, adminGuard]},
-  {path: 'student-dashboard', component: StudentDashboardComponent, canActivate: [authGuard, studentGuard], children: [
-      {path: 'grades', component: StudentGradesComponent, canActivate: [authGuard, studentGuard]},
-      {path: '**', redirectTo: '', pathMatch: 'full'}
-    ]},
+  {
+    path: 'administrator-dashboard', component: AdministratorDashboardComponent, canActivate: [authGuard, adminGuard]
+  },
+  {
+    path: 'student-dashboard', component: StudentDashboardComponent, canActivate: [authGuard, studentGuard], children:
+      [
+        {
+          path: 'grades',
+          component: StudentGradesComponent,
+          canActivate: [authGuard, studentGuard]
+        },
+        {
+          path: 'profile',
+          component: UserProfileComponent,
+          canActivate: [authGuard, studentGuard],
+          resolve: {userData: profileResolver}
+        },
+        {path: '**', redirectTo: '', pathMatch: 'full'},
+
+      ]
+  },
   {
     path: 'teacher-dashboard',
     component: TeacherDashboardComponent,
     resolve: {
       data: StudentsTaughtByTeacherResolverService
     },
-    canActivate: [authGuard, teacherGuard]
-  },
-  {
-    path: 'student-dashboard/:any',
-    redirectTo: 'student-dashboard/',
-    pathMatch: 'full'
+    canActivate: [authGuard, teacherGuard], children: [
+      {
+        path: 'profile',
+        component: UserProfileComponent,
+        canActivate: [authGuard, teacherGuard],
+        resolve: {userData: profileResolver}
+      }
+    ]
   },
   {path: '**', redirectTo: 'home'}
 ];

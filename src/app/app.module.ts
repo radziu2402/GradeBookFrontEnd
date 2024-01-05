@@ -15,6 +15,11 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthInterceptor} from "./core/service/security/auth.interceptor";
 import {HomepageComponent} from "./core/component/homepage/homepage.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {UserProfileComponent} from "./profil/component/user-profile/user-profile.component";
+import {MatCardModule} from "@angular/material/card";
+import {MatButtonModule} from "@angular/material/button";
+import {ProfileModule} from "./profil/profile.module";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -22,7 +27,7 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     HeaderComponent,
     HomepageComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -31,7 +36,11 @@ import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
     HttpClientModule,
     MatTableModule,
     BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MatCardModule,
+    MatButtonModule,
+    ProfileModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {

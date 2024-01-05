@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {AuthService} from "../../service/security/auth.service";
 import {Router} from "@angular/router";
 import {MAP_ROLE_TO_URL} from "../../const/constants";
-import {faEyeSlash} from "@fortawesome/free-solid-svg-icons";
+import {faEye, faEyeSlash} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-login',
@@ -34,4 +34,6 @@ export class LoginComponent {
     const passwordInput = document.getElementById('loginPassword') as HTMLInputElement;
     passwordInput.type = this.passwordVisible ? 'text' : 'password';
   }
+
+  protected readonly faEye = faEye;
 }

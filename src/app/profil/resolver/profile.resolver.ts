@@ -1,4 +1,3 @@
-import { ResolveFn } from '@angular/router';
 import {ProfileService} from "../service/profile.service";
 import {inject} from "@angular/core";
 import {User} from "../model/user";

@@ -1,4 +1,13 @@
 :host {
+  .container-fluid {
+    .navbar {
+      .container-fluid {
+        ul {
+          margin-left: 118px
+        }
+      }
+    }
+  }
   .col-md-12{
     height: 520px;
   }
