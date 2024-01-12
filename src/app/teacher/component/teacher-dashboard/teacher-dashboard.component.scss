@@ -1,8 +1,20 @@
 
 :host {
   .container-fluid {
-    width: 1200px;
-    padding: 50px 0;
+    .navbar {
+      border-radius: 5px;
+      display: flex;
+      place-content: center;
+      align-items: center;
+
+      button {
+        background: #335990;
+        position: absolute;
+        right: 0;
+        margin-right: 20px;
+      }
+
+    }
 
     a {
       cursor: pointer;

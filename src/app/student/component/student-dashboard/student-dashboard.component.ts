@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
-import {Router, RouterLink, RouterOutlet} from "@angular/router";
-import {AuthService} from "../../../core/service/security/auth.service";
-import {MatButtonModule} from "@angular/material/button";
+import {Component} from '@angular/core';
+import {AuthService} from '../../../core/service/security/auth.service';
+
 
 @Component({
   selector: 'app-student-dashboard',
@@ -10,14 +9,9 @@ import {MatButtonModule} from "@angular/material/button";
 })
 export class StudentDashboardComponent {
 
-  constructor(private authService: AuthService, private router: Router) {
-  }
+  constructor(private authService: AuthService) {}
 
   onLogout(){
     this.authService.logout();
-  }
-
-  navigateToProfile() {
-    void this.router.navigate(['profile/'])
   }
 }

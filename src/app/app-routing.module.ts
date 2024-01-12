@@ -1,14 +1,15 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomepageComponent} from './core/component/homepage/homepage.component';
-import {LoginComponent} from "./core/component/login/login.component";
+import {LoginComponent} from './core/component/login/login.component';
 import {
   AdministratorDashboardComponent
-} from "./admin/component/administrator-dashboard/administrator-dashboard.component";
-import {authGuard} from "./core/service/guard/auth.guard";
-import {studentGuard} from "./core/service/guard/student.guard";
-import {adminGuard} from "./core/service/guard/admin.guard";
-import {teacherGuard} from "./core/service/guard/teacher.guard";
+} from './admin/component/administrator-dashboard/administrator-dashboard.component';
+import {authGuard} from './core/service/guard/auth.guard';
+import {studentGuard} from './core/service/guard/student.guard';
+import {adminGuard} from './core/service/guard/admin.guard';
+import {teacherGuard} from './core/service/guard/teacher.guard';
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -41,7 +42,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled',
+    })],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule {
+}

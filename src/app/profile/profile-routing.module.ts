@@ -9,7 +9,7 @@ const profileModuleRoutes: Routes = [
   {
     path: '',
     component: UserProfileComponent,
-    pathMatch: "full",
+    // pathMatch: "full",
     resolve: {
       userData: profileResolver
     }

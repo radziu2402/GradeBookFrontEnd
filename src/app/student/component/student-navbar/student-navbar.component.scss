@@ -1,0 +1,15 @@
+:host {
+  .navbar {
+    ul {
+      li {
+        .nav-link {
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

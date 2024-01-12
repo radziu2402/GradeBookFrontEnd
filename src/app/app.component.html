@@ -1,6 +1,8 @@
-<app-header [pageTitle]="'Dziennik elektroniczny'" [logoSrc]="'assets/images/logo.png'" />
-<div class="body-wrapper">
-  <router-outlet></router-outlet>
+<div class="app-container">
+  <app-header [pageTitle]="'Dziennik elektroniczny'" [logoSrc]="'assets/images/logo.png'" />
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer></app-footer>
 </div>
-<app-footer></app-footer>
 

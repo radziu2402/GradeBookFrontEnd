@@ -1,0 +1,31 @@
+<div class="navbar justify-content-center">
+  <ul class="navbar-nav ml-auto">
+    <li class="nav-item">
+      <a class="nav-link" (click)="navigateToProfile()">Twój profil</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/student-dashboard/schedule">Plan lekcji</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="'grades'">Oceny</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/student-dashboard/tests">Sprawdziany</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/student-dashboard/attendance">Obecności</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/student-dashboard/homework">Zadania domowe</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/student-dashboard/library">Biblioteka</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/student-dashboard/announcements">Ogłoszenia</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/student-dashboard/settings">Ustawienia</a>
+    </li>
+  </ul>
+</div>

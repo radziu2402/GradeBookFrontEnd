@@ -1,30 +1,29 @@
 
 :host {
   footer {
+    display: flex;
+    align-items: center;
+    height: 100%;
     background: #f4f4f4;
     padding: 10px;
+    place-content: flex-end;
     text-align: right;
-  }
 
-  .footer-content {
-    display: flex;
-    justify-content: flex-end;
-  }
+    .footer-section {
+      padding-right: 20px;
 
-  .footer-section {
-    padding-right: 20px;
-  }
+      a {
+        color: #5d87ad;
+        text-decoration: none;
 
-  .footer-section a {
-    color: #5d87ad;
-    text-decoration: none;
-  }
+        &:hover {
+          text-decoration: underline;
+        }
+      }
 
-  .footer-section a:hover {
-    text-decoration: underline;
-  }
-
-  .footer-section p {
-    margin: 4px 0;
+      p {
+        margin: 4px 0;
+      }
+    }
   }
 }

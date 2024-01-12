@@ -1,11 +1,22 @@
 :host {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
+  .app-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
-  .body-wrapper {
-    flex-grow: 1;
+    app-header {
+      display: block;
+      height: 10vh;
+    }
+
+    main {
+      flex-grow: 1;
+    }
+
+    app-footer {
+      height: 10vh;
+
+    }
   }
 }
 

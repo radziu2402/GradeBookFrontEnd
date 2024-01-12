@@ -1,21 +1,25 @@
 :host {
   .container-fluid {
     .navbar {
-      .container-fluid {
-        ul {
-          margin-left: 118px;
+      border-radius: 5px;
+      display: flex;
+      place-content: center;
+      align-items: center;
 
-          li {
-            .nav-link {
-              cursor: pointer;
-            }
-          }
-        }
+      button {
+        background: #335990;
+        position: absolute;
+        right: 0;
+        margin-right: 20px;
       }
+
     }
   }
-  .col-md-12{
-    height: 520px;
+
+  .dialog-body {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 250px;
   }
 }
 

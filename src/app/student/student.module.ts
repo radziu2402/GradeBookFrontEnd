@@ -5,18 +5,19 @@ import {StudentDashboardComponent} from "./component/student-dashboard/student-d
 import {StudentGradesComponent} from "./component/student-grades/student-grades.component";
 import {MatButtonModule} from "@angular/material/button";
 import {MatTableModule} from "@angular/material/table";
-import {ShowProfileDataComponent} from "../profile/component/show-profile-data/show-profile-data.component";
+import {StudentNavbarComponent} from './component/student-navbar/student-navbar.component';
 
 @NgModule({
   declarations: [
     StudentDashboardComponent,
     StudentGradesComponent,
+    StudentNavbarComponent
   ],
   imports: [
     CommonModule,
     StudentRoutingModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
   ]
 })
 export class StudentModule { }

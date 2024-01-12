@@ -1,7 +1,8 @@
 <div class="container-fluid">
-  <button (click)="navigateToProfile()">Profil</button>
-  <button mat-raised-button color="basic" (click)= "onLogout()">Wyloguj się</button>
-
+  <nav class="navbar bg-light">
+    <app-teacher-navbar/>
+    <button mat-raised-button color="basic" (click)= "onLogout()">Wyloguj się</button>
+  </nav>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="firstName">
