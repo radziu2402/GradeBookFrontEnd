@@ -2,19 +2,13 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomepageComponent} from './core/component/homepage/homepage.component';
 import {LoginComponent} from "./core/component/login/login.component";
-import {TeacherDashboardComponent} from "./core/component/teacher-dashboard/teacher-dashboard.component";
-import {StudentDashboardComponent} from "./core/component/student-dashboard/student-dashboard.component";
 import {
   AdministratorDashboardComponent
-} from "./core/component/administrator-dashboard/administrator-dashboard.component";
-import {StudentsTaughtByTeacherResolverService} from "./core/resolvers/StudentsTaughtByTeacherResolverService";
+} from "./admin/component/administrator-dashboard/administrator-dashboard.component";
 import {authGuard} from "./core/service/guard/auth.guard";
 import {studentGuard} from "./core/service/guard/student.guard";
 import {adminGuard} from "./core/service/guard/admin.guard";
 import {teacherGuard} from "./core/service/guard/teacher.guard";
-import {StudentGradesComponent} from "./core/component/student-dashboard/student-grades/student-grades.component";
-import {UserProfileComponent} from "./profil/component/user-profile/user-profile.component";
-import {profileResolver} from "./profil/resolver/profile.resolver";
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -24,37 +18,24 @@ const routes: Routes = [
     path: 'administrator-dashboard', component: AdministratorDashboardComponent, canActivate: [authGuard, adminGuard]
   },
   {
-    path: 'student-dashboard', component: StudentDashboardComponent, canActivate: [authGuard, studentGuard], children:
-      [
-        {
-          path: 'grades',
-          component: StudentGradesComponent,
-          canActivate: [authGuard, studentGuard]
-        },
-        {
-          path: 'profile',
-          component: UserProfileComponent,
-          canActivate: [authGuard, studentGuard],
-          resolve: {userData: profileResolver}
-        },
-        {path: '**', redirectTo: '', pathMatch: 'full'},
-
-      ]
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(module => module.ProfileModule),
+    canActivate: [authGuard],
   },
   {
-    path: 'teacher-dashboard',
-    component: TeacherDashboardComponent,
-    resolve: {
-      data: StudentsTaughtByTeacherResolverService
-    },
-    canActivate: [authGuard, teacherGuard], children: [
-      {
-        path: 'profile',
-        component: UserProfileComponent,
-        canActivate: [authGuard, teacherGuard],
-        resolve: {userData: profileResolver}
-      }
-    ]
+    path: 'admin',
+    loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule),
+    canActivate: [authGuard, adminGuard],
+  },
+  {
+    path: 'student',
+    loadChildren: () => import('./student/student.module').then(module => module.StudentModule),
+    canActivate: [authGuard, studentGuard],
+  },
+  {
+    path: 'teacher',
+    loadChildren: () => import('./teacher/teacher.module').then(module => module.TeacherModule),
+    canActivate: [authGuard, teacherGuard],
   },
   {path: '**', redirectTo: 'home'}
 ];
@@ -63,5 +44,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

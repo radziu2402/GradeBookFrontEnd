@@ -15,11 +15,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthInterceptor} from "./core/service/security/auth.interceptor";
 import {HomepageComponent} from "./core/component/homepage/homepage.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {UserProfileComponent} from "./profil/component/user-profile/user-profile.component";
+import {UserProfileComponent} from "./profile/component/user-profile/user-profile.component";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
-import {ProfileModule} from "./profil/profile.module";
+import {ProfileModule} from "./profile/profile.module";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {ChangeProfileDataComponent} from "./profile/component/change-profile-data/change-profile-data.component";
 
 @NgModule({
   declarations: [
