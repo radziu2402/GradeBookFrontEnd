@@ -1,13 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Grade, GradesService} from "../../../service/gradesService";
-import {MatTableDataSource, MatTableModule} from "@angular/material/table";
+import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-student-grades',
-  standalone: true,
-  imports: [
-    MatTableModule
-  ],
   templateUrl: './student-grades.component.html',
   styleUrl: './student-grades.component.scss'
 })
