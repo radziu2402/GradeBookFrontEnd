@@ -1,12 +1,14 @@
-import {TeacherDashboardComponent} from "./component/teacher-dashboard/teacher-dashboard.component";
-import {StudentsTaughtByTeacherResolverService} from "./resolvers/StudentsTaughtByTeacherResolverService";
-import {authGuard} from "../core/service/guard/auth.guard";
-import {teacherGuard} from "../core/service/guard/teacher.guard";
-import {RouterModule, Routes} from "@angular/router";
-import {NgModule} from "@angular/core";
+import {TeacherDashboardComponent} from './component/teacher-dashboard/teacher-dashboard.component';
+import {StudentsTaughtByTeacherResolverService} from './resolvers/StudentsTaughtByTeacherResolverService';
+import {RouterModule, Routes} from '@angular/router';
+import {NgModule} from '@angular/core';
 import {StudentsTableComponent} from './component/students-table/students-table.component';
 import {StudentsGradesComponent} from './component/students-grades/students-grades.component';
 import {studentsGradesResolver} from './resolvers/students-grades.resolver';
+import {UserProfileComponent} from '../profile/component/user-profile/user-profile.component';
+import {profileResolver} from '../profile/resolver/profile.resolver';
+import {TeacherHomeComponent} from './component/teacher-home/teacher-home.component';
+
 
 const teacherModuleRoutes: Routes = [
   {
@@ -14,9 +16,22 @@ const teacherModuleRoutes: Routes = [
     component: TeacherDashboardComponent,
     children: [
       {
+        path: 'home',
+        component: TeacherHomeComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'profile',
+        component: UserProfileComponent,
+        pathMatch: 'full',
+        resolve: {
+          userData: profileResolver
+        }
+      },
+      {
         path: 'students',
         component: StudentsTableComponent,
-        pathMatch: "full",
+        pathMatch: 'full',
         resolve: {
           data: StudentsTaughtByTeacherResolverService
         },
@@ -24,7 +39,7 @@ const teacherModuleRoutes: Routes = [
       {
         path: ':trxid/grades',
         component: StudentsGradesComponent,
-        pathMatch: "full",
+        pathMatch: 'full',
         resolve: {
           grades: studentsGradesResolver
         },
@@ -32,8 +47,8 @@ const teacherModuleRoutes: Routes = [
     ],
   },
   {
-    path: '**',
-    redirectTo: '',
+    path: '',
+    redirectTo: 'home',
     pathMatch: 'full'
   }
 ];

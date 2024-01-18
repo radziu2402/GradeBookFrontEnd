@@ -7,7 +7,6 @@ import {ChangeProfileDataComponent} from "./component/change-profile-data/change
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
-import {ProfileRoutingModule} from "./profile-routing.module";
 import {MatIconModule} from "@angular/material/icon";
 import {ShowProfileDataComponent} from "./component/show-profile-data/show-profile-data.component";
 
@@ -20,7 +19,6 @@ import {ShowProfileDataComponent} from "./component/show-profile-data/show-profi
   ],
     imports: [
         CommonModule,
-        ProfileRoutingModule,
         MatCardModule,
         RouterLink,
         MatInputModule,
@@ -29,7 +27,10 @@ import {ShowProfileDataComponent} from "./component/show-profile-data/show-profi
         MatIconModule,
         ReactiveFormsModule,
         NgOptimizedImage
-    ]
+    ],
+  exports: [
+      UserProfileComponent
+  ]
 })
 export class ProfileModule {
 }

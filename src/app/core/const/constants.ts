@@ -6,5 +6,5 @@ export enum ROLES {
 export const MAP_ROLE_TO_URL: { [key in ROLES]: string } = {
   ADMINISTRATOR: 'admin/',
   STUDENT: 'student/home',
-  TEACHER: 'teacher/',
+  TEACHER: 'teacher/home',
 }

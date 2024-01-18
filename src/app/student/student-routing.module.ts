@@ -6,6 +6,8 @@ import {StudentTeachersComponent} from "./component/student-teachers/student-tea
 import {StudentAttendancesComponent} from "./component/student-attendances/student-attendances.component";
 import {StudentClassComponent} from "./component/student-class/student-class.component";
 import {StudentHomeComponent} from "./component/student-home/student-home.component";
+import {UserProfileComponent} from '../profile/component/user-profile/user-profile.component';
+import {profileResolver} from '../profile/resolver/profile.resolver';
 
 
 const studentModuleRoutes: Routes = [
@@ -14,6 +16,19 @@ const studentModuleRoutes: Routes = [
     component: StudentDashboardComponent,
     children:
       [
+        {
+          path: 'home',
+          component: StudentHomeComponent,
+          pathMatch: 'full'
+        },
+        {
+          path: 'profile',
+          component: UserProfileComponent,
+          pathMatch: "full",
+          resolve: {
+            userData: profileResolver
+          }
+        },
         {
           path: 'grades',
           component: StudentGradesComponent,
@@ -32,11 +47,6 @@ const studentModuleRoutes: Routes = [
         {
           path: 'myclass',
           component: StudentClassComponent,
-          pathMatch: 'full'
-        },
-        {
-          path: 'home',
-          component: StudentHomeComponent,
           pathMatch: 'full'
         }
       ]

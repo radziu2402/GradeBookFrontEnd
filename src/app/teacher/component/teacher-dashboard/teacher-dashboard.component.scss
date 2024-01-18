@@ -6,6 +6,7 @@
       display: flex;
       place-content: center;
       align-items: center;
+      margin-bottom: 20px;
 
       button {
         background: #335990;
@@ -13,11 +14,12 @@
         right: 0;
         margin-right: 20px;
       }
+    }
 
+    .dialog-body {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 250px;
     }
   }
-
-    a {
-      cursor: pointer;
-    }
 }

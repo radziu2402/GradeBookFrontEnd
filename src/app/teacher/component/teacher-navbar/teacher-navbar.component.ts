@@ -6,11 +6,4 @@ import {Router} from '@angular/router';
   templateUrl: './teacher-navbar.component.html',
   styleUrl: './teacher-navbar.component.scss'
 })
-export class TeacherNavbarComponent {
-  constructor(private router: Router) {
-  }
-
-  navigateToProfile() {
-    void this.router.navigate(['profile/'])
-  }
-}
+export class TeacherNavbarComponent {}

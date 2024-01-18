@@ -1,85 +1,78 @@
 :host {
   .simple-dialog {
-    display: block;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 800px;
+    margin: 20px auto 0 auto;
+    padding: 20px;
+    text-align: center;
 
     .dialog-header {
-      display: flex;
-      align-items: center;
-      height: 200px;
-      width: 100%;
-      padding: 32px 250px 32px;
-      background: #f4f4f4;
+      margin-bottom: 20px;
 
       img {
-        width: 100px;
-        height: auto;
-        margin-right: 20px;
+        max-height: 128px;
+        max-width: 128px;
+        border-radius: 50%;
+        margin-bottom: 15px;
       }
 
-      .text {
-        font-size: 42px;
-        font-weight: 300;
+      h1.text {
+        font-size: 24px;
+        color: #005f73;
+        margin: 0;
       }
     }
 
     .dialog-body {
-      padding: 32px 250px 36px;
-
-      h2 {
-        margin-bottom: 20px;
-      }
-
-      label {
-        color: #525252;
-        font-size: 15px;
-        margin-bottom: 2px;
-        font-weight: 700;
-      }
-
-      p {
-        color: #525252;
-        font-size: 15px;
-        margin-bottom: 5px;
-      }
-
-      .data-container {
-        .property {
-          width: 250px;
-        }
-      }
+      display: flex;
+      align-items: center;
+      flex-direction: column;
 
       .go-back {
         display: flex;
-        justify-content: center;
+        place-content: center;
+        align-self: flex-start;
         background: none;
         color: #003a79;
         outline: none;
         border: none;
-        margin-bottom: 30px;
+        margin-left: 10px;
+        margin-bottom: 20px;
 
         &:hover {
           text-decoration: underline;
         }
       }
 
-      .change-data {
-        margin-top: 20px;
-        padding: 10px 20px;
-        font-size: 16px;
-        color: #fff;
-        background-color: #007bff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s, transform 0.3s;
+      ng-container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-        &:focus {
-          transform: translateY(-2px);
-          outline: none;
+        show-profile-data, change-profile-data {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
         }
+      }
 
-        &:active {
-          transform: translateY(2px);
+      .edit-button {
+        align-self: center;
+        padding: 10px 20px;
+        width: 300px;
+        border: none;
+        border-radius: 4px;
+        background-color: #005f73;
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
+
+        &:hover {
+          background-color: darken(#005f73, 10%);
         }
       }
     }

@@ -13,11 +13,6 @@ const routes: Routes = [
   {path: 'home', component: HomepageComponent},
   {path: 'login', component: LoginComponent},
   {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then(module => module.ProfileModule),
-    canActivate: [authGuard],
-  },
-  {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(module => module.AdminModule),
     canActivate: [authGuard, adminGuard],
