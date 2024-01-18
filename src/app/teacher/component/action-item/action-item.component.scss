@@ -1,0 +1,17 @@
+:host {
+  .item-container {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    background: lightblue;
+
+    .info-container {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      font-size: 18px;
+      line-height: 1.5;
+      font-weight: normal;
+    }
+  }
+}

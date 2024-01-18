@@ -2,6 +2,8 @@
   .navbar {
     ul {
       li {
+        display: flex;
+
         .nav-link {
           cursor: pointer;
 

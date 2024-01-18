@@ -15,12 +15,12 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {AuthInterceptor} from "./core/service/security/auth.interceptor";
 import {HomepageComponent} from "./core/component/homepage/homepage.component";
 import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import {UserProfileComponent} from "./profile/component/user-profile/user-profile.component";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {ProfileModule} from "./profile/profile.module";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
-import {ChangeProfileDataComponent} from "./profile/component/change-profile-data/change-profile-data.component";
+import {ActionItemComponent} from './teacher/component/action-item/action-item.component';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import {ChangeProfileDataComponent} from "./profile/component/change-profile-dat
     HeaderComponent,
     HomepageComponent,
     LoginComponent,
-    FooterComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +41,8 @@ import {ChangeProfileDataComponent} from "./profile/component/change-profile-dat
     MatCardModule,
     MatButtonModule,
     ProfileModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatIconModule
   ],
   providers: [
     {
@@ -49,6 +50,8 @@ import {ChangeProfileDataComponent} from "./profile/component/change-profile-dat
       useClass: AuthInterceptor,
       multi: true,
     }
+  ],
+  exports: [
   ],
   bootstrap: [AppComponent]
 })

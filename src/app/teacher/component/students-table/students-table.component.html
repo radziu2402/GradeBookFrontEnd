@@ -1,0 +1,50 @@
+<div class="simple-dialog">
+  <header class="dialog-header">
+    <h1 class="text">Uczniowie</h1>
+  </header>
+  <div class="dialog-body"
+       *ngIf="{items: tableItems$ | async} as table">
+    <table mat-table
+           [dataSource]="table.items"
+           class="mat-elevation-z8 table-content">
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell
+            *matHeaderCellDef> Imie
+        </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.data["firstName"]}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="secondName">
+        <th mat-header-cell
+            *matHeaderCellDef> Nazwisko
+        </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.data["lastName"]}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="className">
+        <th mat-header-cell
+            *matHeaderCellDef> Klasa
+        </th>
+        <td mat-cell
+            *matCellDef="let element"> {{element.data["className"]}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell
+            *matHeaderCellDef> Oceny
+        </th>
+        <td mat-cell
+            *matCellDef="let element">
+          <button mat-raised-button color="accent" (click)="element.action()">Zobacz oceny</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row
+          *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row
+          *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+</div>

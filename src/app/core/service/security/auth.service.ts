@@ -1,14 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Router} from "@angular/router";
-import {Observable, shareReplay, Subject, tap} from "rxjs";
+import {Observable, shareReplay, Subject, tap, throwError} from 'rxjs';
 import {jwtDecode} from "jwt-decode";
 import * as dayjs from "dayjs";
 import {environment} from "../../../../environments/environment";
 import {ROLES} from "../../const/constants";
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError} from 'rxjs/operators';
-import { throwError } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })

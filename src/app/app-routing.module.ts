@@ -2,9 +2,6 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomepageComponent} from './core/component/homepage/homepage.component';
 import {LoginComponent} from './core/component/login/login.component';
-import {
-  AdministratorDashboardComponent
-} from './admin/component/administrator-dashboard/administrator-dashboard.component';
 import {authGuard} from './core/service/guard/auth.guard';
 import {studentGuard} from './core/service/guard/student.guard';
 import {adminGuard} from './core/service/guard/admin.guard';
@@ -15,9 +12,6 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomepageComponent},
   {path: 'login', component: LoginComponent},
-  {
-    path: 'administrator-dashboard', component: AdministratorDashboardComponent, canActivate: [authGuard, adminGuard]
-  },
   {
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then(module => module.ProfileModule),

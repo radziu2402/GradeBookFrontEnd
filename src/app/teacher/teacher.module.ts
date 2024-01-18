@@ -5,19 +5,27 @@ import {TeacherDashboardComponent} from "./component/teacher-dashboard/teacher-d
 import {MatTableModule} from "@angular/material/table";
 import {MatButtonModule} from "@angular/material/button";
 import {TeacherNavbarComponent} from './component/teacher-navbar/teacher-navbar.component';
+import {ActionItemComponent} from './component/action-item/action-item.component';
+import {MatIconModule} from '@angular/material/icon';
+import {StudentsTableComponent} from './component/students-table/students-table.component';
+import {StudentsGradesComponent} from './component/students-grades/students-grades.component';
 
 
 
 @NgModule({
   declarations: [
       TeacherDashboardComponent,
-      TeacherNavbarComponent
+      TeacherNavbarComponent,
+      ActionItemComponent,
+      StudentsTableComponent,
+      StudentsGradesComponent
   ],
   imports: [
     CommonModule,
     TeacherRoutingModule,
     MatTableModule,
-    MatButtonModule
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class TeacherModule { }
