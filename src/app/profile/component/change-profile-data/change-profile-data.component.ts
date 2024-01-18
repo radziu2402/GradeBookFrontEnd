@@ -1,9 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormControl, FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormControl} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormControl} from "@angular/forms";
 import {BaseFormComponent} from "../../../core/component/base-form/base-form.component";
-import {MatInputModule} from "@angular/material/input";
-import {MatButtonModule} from "@angular/material/button";
-import {ActivatedRoute, Router} from "@angular/router";
 import {User} from "../../model/user";
 import {ProfileService} from "../../service/profile.service";
 import {throwError} from "rxjs";

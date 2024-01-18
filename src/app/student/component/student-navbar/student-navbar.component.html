@@ -4,28 +4,28 @@
       <a class="nav-link" (click)="navigateToProfile()">Twój profil</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/student-dashboard/schedule">Plan lekcji</a>
-    </li>
-    <li class="nav-item">
       <a class="nav-link" [routerLink]="'grades'">Oceny</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/student-dashboard/tests">Sprawdziany</a>
+      <a class="nav-link" [routerLink]="'teachers'">Nauczyciele</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/student-dashboard/attendance">Obecności</a>
+      <a class="nav-link" [routerLink]="'attendances'">Obecności</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/student-dashboard/homework">Zadania domowe</a>
+      <a class="nav-link" [routerLink]="'myclass'">Moja klasa</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/student-dashboard/library">Biblioteka</a>
+      <a class="nav-link" routerLink="/student/schedule">Plan lekcji</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/student-dashboard/announcements">Ogłoszenia</a>
+      <a class="nav-link" routerLink="/student/library">Biblioteka</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" routerLink="/student-dashboard/settings">Ustawienia</a>
+      <a class="nav-link" routerLink="/student/announcements">Ogłoszenia</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/student/settings">Ustawienia</a>
     </li>
   </ul>
 </div>

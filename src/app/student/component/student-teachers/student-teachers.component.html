@@ -1,0 +1,12 @@
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let teacher of teachers">
+      <strong>{{ teacher.subjectName }}:</strong>
+      <ng-container *ngIf="teacher.academicDegree !== 'Brak'; else noDegree">
+        {{ teacher.academicDegree }}
+      </ng-container>
+      <ng-template #noDegree></ng-template>
+      {{ teacher.teacherFirstName }} {{ teacher.teacherLastName }}
+    </li>
+  </ul>
+</div>

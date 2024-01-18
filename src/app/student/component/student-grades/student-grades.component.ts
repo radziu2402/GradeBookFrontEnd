@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {Grade, GradesService} from "../../service/gradesService";
-import {MatTableDataSource} from "@angular/material/table";
 
 @Component({
   selector: 'app-student-grades',
@@ -10,10 +9,10 @@ import {MatTableDataSource} from "@angular/material/table";
 
 export class StudentGradesComponent implements OnInit {
   grades: Grade[] = [];
-  displayedColumns: string[] = ['Ocena', 'Data wystawienia', 'Przedmiot', 'Nauczyciel'];
-
-  dataSource = new MatTableDataSource<any>(this.grades);
-  constructor(private gradesService: GradesService) {}
+  sortColumn: string | null = null;
+  sortDirection: 'asc' | 'desc' | null = null;
+  constructor(private gradesService: GradesService) {
+  }
 
   ngOnInit(): void {
     this.loadGrades();
@@ -23,11 +22,28 @@ export class StudentGradesComponent implements OnInit {
     this.gradesService.getGrades().subscribe(
       (grades) => {
         this.grades = grades;
-        this.dataSource.data = this.grades;
       },
       (error) => {
         console.error('Error loading grades', error);
       }
     );
+  }
+
+  onSort(column: string): void {
+    if (this.sortColumn === column) {
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 'asc';
+    } else {
+      this.sortColumn = column;
+      this.sortDirection = 'asc';
+    }
+
+    this.grades.sort((a, b) => {
+      if (a[this.sortColumn] < b[this.sortColumn]) {
+        return this.sortDirection === 'asc' ? -1 : 1;
+      } else if (a[this.sortColumn] > b[this.sortColumn]) {
+        return this.sortDirection === 'asc' ? 1 : -1;
+      }
+      return 0;
+    });
   }
 }

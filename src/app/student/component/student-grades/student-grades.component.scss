@@ -1,0 +1,53 @@
+.grades-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 8px;
+
+  .grades-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+    th {
+      background-color: #f4f4f4;
+      color: #333;
+      font-weight: bold;
+      padding: 10px;
+      border-bottom: 2px solid #e1e1e1;
+      position: relative;
+      cursor: pointer;
+
+      .sort-icon {
+        cursor: pointer;
+        user-select: none;
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+
+      &:hover .sort-icon {
+        color: #666;
+      }
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid #e1e1e1;
+    }
+
+    tr:hover {
+      background-color: #fafafa;
+    }
+  }
+
+  .no-grades {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #999;
+  }
+}

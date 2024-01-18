@@ -13,14 +13,18 @@ const teacherModuleRoutes: Routes = [
     resolve: {
       data: StudentsTaughtByTeacherResolverService
     },
-    canActivate: [authGuard, teacherGuard], children: [
-    ]
+    canActivate: [authGuard, teacherGuard], children: []
   },
-  {path: '**', redirectTo: ''}
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(teacherModuleRoutes)],
   exports: [RouterModule]
 })
-export class TeacherRoutingModule {}
+export class TeacherRoutingModule {
+}

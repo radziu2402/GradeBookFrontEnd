@@ -1,0 +1,24 @@
+<div class="attendances-container">
+  <table>
+    <thead>
+    <tr>
+      <th (click)="onSort('date')">Data <span class="sort-icon">↕</span></th>
+      <th (click)="onSort('present')">Obecność <span class="sort-icon">↕</span></th>
+      <th (click)="onSort('subjectName')">Przedmiot <span class="sort-icon">↕</span></th>
+      <th (click)="onSort('teacherFirstName')">Nauczyciel <span class="sort-icon">↕</span></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let attendance of attendances">
+      <td>{{ attendance.date | date: 'dd/MM/yyyy' }}</td>
+      <td [class.absent]="!attendance.present">{{ attendance.present ? 'Obecny' : 'Nieobecny' }}</td>
+      <td>{{ attendance.subjectName }}</td>
+      <td>{{ attendance.teacherFirstName }} {{ attendance.teacherLastName }}</td>
+    </tr>
+    </tbody>
+  </table>
+  <div *ngIf="attendances.length === 0" class="no-attendances">
+    Brak danych o obecnościach.
+  </div>
+</div>
+

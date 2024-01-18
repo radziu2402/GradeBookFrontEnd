@@ -1,0 +1,67 @@
+.attendances-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  border-radius: 8px;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    thead {
+      th {
+        background-color: #f4f4f4;
+        color: #333;
+        font-weight: bold;
+        padding: 10px;
+        text-align: left;
+        border-bottom: 2px solid #e1e1e1;
+        position: relative;
+        cursor: pointer;
+
+        .sort-icon {
+          cursor: pointer;
+          user-select: none;
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+
+        &:hover .sort-icon {
+          color: #666;
+        }
+      }
+    }
+
+
+    tbody td {
+      padding: 10px;
+      text-align: left;
+      vertical-align: middle;
+      border-bottom: 1px solid #e1e1e1;
+
+      &:nth-child(2) {
+        font-weight: bold;
+        color: #275d28;
+        &.absent {
+          color: #8c271e;
+        }
+      }
+    }
+
+    tbody tr:hover {
+      background-color: #fafafa;
+    }
+  }
+
+  .no-attendances {
+    text-align: center;
+    padding: 20px;
+    font-style: italic;
+    color: #999;
+  }
+}

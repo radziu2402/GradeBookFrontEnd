@@ -1,0 +1,35 @@
+.container {
+  padding: 2rem;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  .list-group {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    .list-group-item {
+      padding: 0.75rem 1.25rem;
+      margin-bottom: 0.5rem;
+      background-color: #fff;
+      border: 1px solid #dee2e6;
+      border-radius: 0.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        background-color: #e9ecef;
+      }
+
+      strong {
+        display: block;
+        color: #2e86be;
+        margin-bottom: 0.25rem;
+      }
+
+    }
+  }
+}

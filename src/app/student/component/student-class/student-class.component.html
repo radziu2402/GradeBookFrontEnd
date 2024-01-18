@@ -1,0 +1,11 @@
+<div class="class-container" *ngIf="classData">
+  <h2>Wychowawca: {{ classData.academicDegree }} {{ classData.tutorFirstName }} {{ classData.tutorLastName }} </h2>
+  <ul>
+    <li *ngFor="let student of classData.inClassStudents">
+      {{ student.firstName }} {{ student.lastName }} {{ student.className }}
+    </li>
+  </ul>
+  <div *ngIf="classData.inClassStudents.length === 0">
+    Brak uczniów w tej klasie.
+  </div>
+</div>
