@@ -3,19 +3,27 @@
     <h1 class="text">Uczniowie</h1>
   </header>
   <div class="dialog-body">
-    <table class="table-content">
+    <table *ngIf="{data: grades$ | async} as grades" class="table-content">
       <thead>
       <tr>
         <th>Wartość</th>
         <th>Data wystawienia</th>
         <th>Przedmiot</th>
+        <th>Akcja</th>
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let element of grades">
-        <td>{{ element['gradeValue'] }}</td>
-        <td>{{ element['dateOfModification'] }}</td>
-        <td>{{ element['subjectName'] }}</td>
+      <tr *ngFor="let element of grades.data">
+        <td>{{ element.data['gradeValue'] }}</td>
+        <td>{{ element.data['dateOfModification'] }}</td>
+        <td>{{ element.data['subjectName'] }}</td>
+        <td>
+          <button class="delete-grade"
+                  (click)="element.action()">
+            <mat-icon class="icon">delete icon</mat-icon>
+          </button>
+        </td>
+
       </tr>
       </tbody>
     </table>

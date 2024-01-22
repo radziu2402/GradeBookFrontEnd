@@ -8,6 +8,7 @@ import {studentsGradesResolver} from './resolvers/students-grades.resolver';
 import {UserProfileComponent} from '../profile/component/user-profile/user-profile.component';
 import {profileResolver} from '../profile/resolver/profile.resolver';
 import {TeacherHomeComponent} from './component/teacher-home/teacher-home.component';
+import {GradeFormComponent} from './component/grade-form/grade-form.component';
 
 
 const teacherModuleRoutes: Routes = [
@@ -37,12 +38,17 @@ const teacherModuleRoutes: Routes = [
         },
       },
       {
-        path: ':trxid/grades',
+        path: 'grades/:trxid',
         component: StudentsGradesComponent,
         pathMatch: 'full',
         resolve: {
           grades: studentsGradesResolver
         },
+      },
+      {
+        path: 'new-grade/:trxid',
+        component: GradeFormComponent,
+        pathMatch: 'full'
       }
     ],
   },

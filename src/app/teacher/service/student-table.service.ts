@@ -23,7 +23,8 @@ export class StudentTableService {
   private mapToTableItem(student: Student): StudentItem {
     return {
       data: student,
-      action: () => this.router.navigate([`teacher/${student.id}/grades`]),
+      deleteAction: () => this.router.navigate([`teacher/grades/${student.id}`]),
+      addAction: () => this.router.navigate([`teacher/new-grade/${student.id}`])
     }
   }
 }

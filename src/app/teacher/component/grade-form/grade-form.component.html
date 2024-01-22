@@ -1,0 +1,12 @@
+<section class="simple-dialog">
+  <div class="dialog-body">
+    <form (ngSubmit)="submit()" [formGroup]="form">
+      <div>
+        <label for="gradeValue">Ocena:</label>
+        <input type="text" formControlName="gradeValue" id="gradeValue" name="gradeValue">
+      </div>
+      <button mat-raised-button color="primary" type="submit">Dodaj ocene</button>
+    </form>
+  </div>
+</section>
+
