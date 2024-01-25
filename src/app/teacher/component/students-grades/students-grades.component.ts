@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Grade} from '../../../student/service/gradesService';
+import {GradeTableService} from "../../service/grade-table.service";
+import {GradeItem} from "../../model/Grade";
+import {Observable} from "rxjs";
 
 
 @Component({
@@ -9,18 +12,15 @@ import {Grade} from '../../../student/service/gradesService';
   styleUrl: './students-grades.component.scss'
 })
 export class StudentsGradesComponent implements OnInit {
-  displayedColumns: string[] = ['gradeValue', 'dateOfModification', 'subjectName'];
-
-  grades: Grade[];
+  grades$: Observable<GradeItem[]>;
   trxid: number;
 
-  // this.trxid = Number(this.route.snapshot.paramMap.get('trxid'));
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(private route: ActivatedRoute,
+              private gradeTableService: GradeTableService) {}
 
   ngOnInit(): void {
     this.route.data.subscribe(data => {
-      this.grades = data['grades'];
+      this.grades$ = this.gradeTableService.getTableItems(data['grades']);
     });
   }
 }

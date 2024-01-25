@@ -9,6 +9,8 @@ import {ActionItemComponent} from './component/action-item/action-item.component
 import {MatIconModule} from '@angular/material/icon';
 import {StudentsTableComponent} from './component/students-table/students-table.component';
 import {StudentsGradesComponent} from './component/students-grades/students-grades.component';
+import {GradeFormComponent} from './component/grade-form/grade-form.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 
 
@@ -18,14 +20,16 @@ import {StudentsGradesComponent} from './component/students-grades/students-grad
       TeacherNavbarComponent,
       ActionItemComponent,
       StudentsTableComponent,
-      StudentsGradesComponent
+      StudentsGradesComponent,
+      GradeFormComponent
   ],
   imports: [
     CommonModule,
     TeacherRoutingModule,
     MatTableModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    ReactiveFormsModule
   ]
 })
 export class TeacherModule { }

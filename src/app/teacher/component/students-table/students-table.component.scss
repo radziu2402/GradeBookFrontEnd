@@ -43,16 +43,27 @@
               border-bottom: 1px solid #ccc;
             }
 
-            button.view-grades {
-              background-color: #005f73;
+            button {
               color: white;
               border: none;
               padding: 6px 12px;
               border-radius: 4px;
               cursor: pointer;
+            }
+
+            .view-grades {
+              background-color: #005f73;
 
               &:hover {
                 background-color: darken(#005f73, 10%);
+              }
+            }
+
+            .add-grades {
+              background-color: rgb(17, 112, 1);
+
+              &:hover {
+                background-color: darken(#117001FF, 10%);
               }
             }
           }

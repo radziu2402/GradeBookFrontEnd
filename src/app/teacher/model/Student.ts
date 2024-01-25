@@ -7,5 +7,6 @@ export interface Student {
 
 export interface StudentItem {
   data: Student,
-  action: () => void;
+  deleteAction: () => void;
+  addAction: () => void;
 }

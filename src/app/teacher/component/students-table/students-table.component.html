@@ -10,7 +10,8 @@
         <th>Imie</th>
         <th>Nazwisko</th>
         <th>Klasa</th>
-        <th>Oceny</th>
+        <th>Zobacz oceny</th>
+        <th>Dodaj ocene</th>
       </tr>
       </thead>
       <tbody>
@@ -20,7 +21,12 @@
         <td>{{ element.data['className'] }}</td>
         <td>
           <button class="view-grades"
-                  (click)="element.action()">Zobacz oceny
+                  (click)="element.deleteAction()">Zobacz oceny
+          </button>
+        </td>
+        <td>
+          <button class="add-grades"
+                  (click)="element.addAction()">dodaj ocene
           </button>
         </td>
       </tr>
